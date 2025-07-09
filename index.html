@@ -58,7 +58,7 @@
   <header class="masthead">
     <div class="container">
       <div class="intro-text">
-        <div class="intro-lead-in">Selamat Datang di Web Profil</div>
+        <div class="intro-lead-in">Selamat Datang</div>
         <div class="intro-heading text-uppercase">Desa Bojong</div>
         <a class="btn btn-warning btn-xl text-uppercase js-scroll-trigger" href="#about">Selengkapnya</a>
       </div>
@@ -173,13 +173,14 @@
 
       <!-- Video 1 -->
       <div class="col-md-4 mb-4">
-  <div class="card h-100 video-card" data-toggle="modal" data-target="#modalIframe" data-url="https://www.youtube.com/embed/iop4P7Ak95U">
-    <img class="card-img-top" src="img/video-thumb-bojong.png" alt="Profil Desa Bojong">
+  <div class="card h-100 video-card" data-toggle="modal" data-target="#modalIframe" data-url="https://www.youtube.com/embed/2pgeorWSSKI">
+    <img class="card-img-top" src="img/video-thumb-bojong.jpg" alt="Profil Desa Bojong">
     <div class="card-body text-center">
       <h5>Profil Desa Bojong</h5>
       <p>Video profil resmi Desa Bojong, Kec. Wonosegoro, Boyolali – menampilkan potensi, budaya, dan kehidupan masyarakat desa.</p>
     </div>
   </div>
+</div>
 </div>
     </div>
   </div>
@@ -374,8 +375,8 @@ window.addEventListener('scroll', () => {
     btn.style.display = window.scrollY > 300 ? 'block' : 'none';
   });
 
-  <!-- Modal untuk iframe video -->
-<div class="modal fade" id="modalIframe" tabindex="-1" role="dialog" aria-labelledby="modalIframeLabel" aria-hidden="true">
+  <!-- Modal Video -->
+<div class="modal fade" id="modalIframe" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-body p-0">
@@ -384,5 +385,17 @@ window.addEventListener('scroll', () => {
     </div>
   </div>
 </div>
+</script>
+<script>
+  $(document).ready(function() {
+    $('.video-card').on('click', function () {
+      const url = $(this).data('url');
+      $('#iframeModalContent').attr('src', url);
+    });
+
+    $('#modalIframe').on('hidden.bs.modal', function () {
+      $('#iframeModalContent').attr('src', '');
+    });
+  });
 </script>
 </body>
